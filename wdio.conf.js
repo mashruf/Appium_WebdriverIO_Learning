@@ -58,7 +58,7 @@ exports.config = {
         'appium:deviceName': 'Pixel 9',
         'appium:platformVersion': '16.0',
         'appium:automationName': 'UiAutomator2',
-        'appium:app': path.join(process.cwd(),'./app/android/ApiDemos-debug.apk')
+        'appium:app': 'D:/Appium_WebdriverIO_Learning/app/android/ApiDemos-debug.apk'
     }],
 
     //
