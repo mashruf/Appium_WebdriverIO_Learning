@@ -13,7 +13,7 @@ describe("Android Elements Test",()=>{
 
     })
 
-    it.only("Find element by class name", async()=>{
+    it("Find element by class name", async()=>{
 
         //find element by class name
         const className = await $("android.widget.TextView");
@@ -24,5 +24,23 @@ describe("Android Elements Test",()=>{
         await expect(className).toHaveText("API Demos");
 
         
+    })
+
+    it("Find elements by xpath", async ()=>{
+
+        //xpath - (//tagname[@attribute=value])
+        await $("//android.widget.TextView[@content-desc='Alert Dialogs']").click();
+
+        //find by resource id
+        await $("//android.widget.Button[@resource-id='io.appium.android.apis:id/select_button']").click();
+    
+    
+        //find by text
+        await $("//android.widget.TextView[@text='Command one']").click();
+
+
+        //Assertion
+        const textAssertion = $("//android.widget.TextView");
+        await expect(textAssertion).toHaveText("You selected: 0 , Command one");
     })
 })
