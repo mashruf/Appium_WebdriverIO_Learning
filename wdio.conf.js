@@ -55,10 +55,10 @@ exports.config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-        'appium:deviceName': 'Pixel 9',
+        'appium:deviceName': 'Pixel_9',
         'appium:platformVersion': '16.0',
         'appium:automationName': 'UiAutomator2',
-        'appium:app': 'D:/Appium_WebdriverIO_Learning/app/android/ApiDemos-debug.apk'
+        // 'appium:app': path.join(process.cwd(),"app/android/ApiDemos-debug.apk")
     }],
 
     //
