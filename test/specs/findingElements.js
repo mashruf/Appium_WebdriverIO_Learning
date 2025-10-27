@@ -1,5 +1,6 @@
-describe("Suite",()=>{
-    it("test", async () =>{
+describe("Find elements",()=>{
+    
+    it("By accessibility id", async () =>{
 
         //getting phone element by accessibility id
         const phone = await $('~Phone');
