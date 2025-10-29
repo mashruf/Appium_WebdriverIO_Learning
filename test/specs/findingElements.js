@@ -21,7 +21,7 @@ describe("Find elements",()=>{
         await expect(moreOption).toBeExisting();
     })
 
-    it.only("By class", async () =>{
+    it("By class", async () =>{
 
         //getting phone element by accessibility id
         const chrome = await $('~Chrome');
@@ -48,7 +48,39 @@ describe("Find elements",()=>{
         await expect(className).toHaveText('Search or type URL');
     })
 
+    it.only("By xpath", async () =>{
+
+        //getting phone element by accessibility id
+        const chrome = await $('~Chrome');
+
+        //wait after getting the element
+        await browser.pause(5000);
+
+        //click the phone
+        await chrome.click();
+
+        //wait after getting the element
+        await browser.pause(5000);
+
+        //getting the search bar by xpath
+        const xpath = await $('//android.widget.EditText[@resource-id="com.android.chrome:id/search_box_text"]');
+
+        //getting the text of the placeholder of searchbar
+        const text = await xpath.getText();
+
+        //printing the placeholder text of the searchbar
+        console.log("Text is "+ text);
+
+        //asserting the text of the placeholder of the searchbar
+        await expect(xpath).toHaveText('Search or type URL');
+    })
+
 })
+
+
+
+
+
 
 
 
