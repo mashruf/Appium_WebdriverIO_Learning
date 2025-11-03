@@ -48,7 +48,7 @@ describe("Find elements",()=>{
         await expect(className).toHaveText('Search or type URL');
     })
 
-    it.only("By xpath", async () =>{
+    it("By xpath", async () =>{
 
         //getting phone element by accessibility id
         const chrome = await $('~Chrome');
@@ -74,6 +74,12 @@ describe("Find elements",()=>{
         //asserting the text of the placeholder of the searchbar
         await expect(xpath).toHaveText('Search or type URL');
     })
+
+    it.only("Find element by UiAutomator", async ()=>{
+        //find by text contains
+        await $('android= new UiSelector().textContains("Chrome")').click();
+    })
+
 
 })
 
