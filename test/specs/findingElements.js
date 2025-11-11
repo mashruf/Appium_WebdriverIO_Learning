@@ -75,9 +75,33 @@ describe("Find elements",()=>{
         await expect(xpath).toHaveText('Search or type URL');
     })
 
-    it.only("Find element by UiAutomator", async ()=>{
+    it("Find element by UiAutomator", async ()=>{
         //find by text contains
         await $('android= new UiSelector().textContains("Chrome")').click();
+    })
+
+    it.only("Find multiple elements", async () =>{
+
+        const actualList = ["API Demos", "Access'ibility", "Accessibility",
+             "Animation", "App", "Content",
+             "Graphics", "Media", "NFC", "OS",
+              "Preference", "Text", "Views"];
+        
+        
+        const expectedList = [];
+
+        //getting the elements
+        const textList = await $$('android.widget.TextView');
+
+        //loop through the textList and pushing to the array
+        for(const element of textList){
+            expectedList.push(await element.getText());
+        }
+
+
+        //Asserting the text of the elements
+        await expect(expectedList).toEqual(actualList);
+    
     })
 
 
