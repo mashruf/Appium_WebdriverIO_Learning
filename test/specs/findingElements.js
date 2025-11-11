@@ -80,7 +80,7 @@ describe("Find elements",()=>{
         await $('android= new UiSelector().textContains("Chrome")').click();
     })
 
-    it.only("Find multiple elements", async () =>{
+    it("Find multiple elements", async () =>{
 
         const actualList = ["API Demos", "Access'ibility", "Accessibility",
              "Animation", "App", "Content",
@@ -102,6 +102,28 @@ describe("Find elements",()=>{
         //Asserting the text of the elements
         await expect(expectedList).toEqual(actualList);
     
+    })
+
+    it.only("Working with text input field", async () =>{
+        //getting by accessibility id
+        await $('~Views').click();
+
+        //getting by xpath
+        await $('//*[@content-desc="Auto Complete"]').click();
+
+        //getting by accessibility id
+        await $('~1. Screen Top').click();
+
+        //getting by xpath
+        const textInput = await $('//*[@resource-id="io.appium.android.apis:id/edit"]');
+
+        //typing the text
+        await textInput.addValue('Canada');
+
+        //Asserting the text we typed in the text field
+        await expect(textInput).toHaveText('Canada');
+
+
     })
 
 
