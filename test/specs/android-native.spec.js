@@ -11,7 +11,7 @@ describe("Android native feature tests",()=>{
         await expect ($('//*[@text="App/Alert Dialogs"]')).toExist();
     })
 
-    it.only("Working with dialog box", async ()=>{
+    it("Working with dialog box", async ()=>{
         //access activity
         await driver.startActivity("io.appium.android.apis",".app.AlertDialogSamples");
 
@@ -32,5 +32,22 @@ describe("Android native feature tests",()=>{
 
         //assertion- alert box is no longer visible
         await expect($('//*[@resource-id="android:id/alertTitle"]')).not.toExist();
+    })
+
+    it.only("Vertical Scrolling", async ()=>{
+        
+        //Going to the scrollable screen
+        await $('~App').click();
+        await $('~Activity').click();
+
+        //scroll to the end
+        // await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)');
+
+        //Scroll text into view
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("Secure Surfaces")').click();
+
+        //click element after scrolling to the end
+        // await $('~Secure Surfaces').click();
+
     })
 })
