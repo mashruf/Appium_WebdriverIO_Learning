@@ -34,7 +34,7 @@ describe("Android native feature tests",()=>{
         await expect($('//*[@resource-id="android:id/alertTitle"]')).not.toExist();
     })
 
-    it.only("Vertical Scrolling", async ()=>{
+    it("Vertical Scrolling", async ()=>{
         
         //Going to the scrollable screen
         await $('~App').click();
@@ -48,6 +48,22 @@ describe("Android native feature tests",()=>{
 
         //click element after scrolling to the end
         // await $('~Secure Surfaces').click();
+
+    })
+
+    it.only("Horizontal Scrolling", async ()=>{
+        
+        //Go to the activity screen
+        await driver.startActivity(
+            'io.appium.android.apis','.view.Gallery1'
+        );
+
+        //Horizontal scrolling
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollForward()')
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollBackward()')
+
+        //pause
+        await driver.pause(3000);
 
     })
 })
