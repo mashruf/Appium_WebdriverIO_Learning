@@ -51,7 +51,7 @@ describe("Android native feature tests",()=>{
 
     })
 
-    it.only("Horizontal Scrolling", async ()=>{
+    it("Horizontal Scrolling", async ()=>{
         
         //Go to the activity screen
         await driver.startActivity(
@@ -65,5 +65,32 @@ describe("Android native feature tests",()=>{
         //pause
         await driver.pause(3000);
 
+    })
+
+    it.only("Exercise", async ()=>{
+
+        //going to the target activity
+        await driver.startActivity('io.appium.android.apis','.view.DateWidgets1');
+
+        //getting the current date
+        const currentDate= await $('//*[@resource-id="io.appium.android.apis:id/dateDisplay"]').getText();
+
+        //clicking change the date
+        await $('~change the date').click();
+
+        //horizontal scroll
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).setAsHorizontalList().scrollForward()');
+
+        //select date
+        await $('~10 December 2025').click();
+
+        //click ok
+        await $('//*[@resource-id="android:id/button1"]').click();
+
+        //getting the updated date
+        const updatedDate= await $('//*[@resource-id="io.appium.android.apis:id/dateDisplay"]').getText();
+        
+        //assertion date changed
+        await expect(updatedDate).not.toEqual(currentDate);
     })
 })
