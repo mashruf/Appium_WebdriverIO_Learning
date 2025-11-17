@@ -24,7 +24,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/android-native*.js'
+        './test/specs/android/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,7 +58,7 @@ exports.config = {
         'appium:deviceName': 'Pixel_9',
         'appium:platformVersion': '16.0',
         'appium:automationName': 'UiAutomator2',
-        'appium:app': path.join(process.cwd(),"app/android/ApiDemos-debug.apk")
+        'appium:app': path.join(process.cwd(),"app/android/ColorNote Notepad.apk")
     }],
 
     //
