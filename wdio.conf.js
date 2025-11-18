@@ -24,7 +24,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/android/add-note-screen*.js'
+        './test/specs/android/delete-note-screen*.js'
     ],
     // Patterns to exclude.
     exclude: [
